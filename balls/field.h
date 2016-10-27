@@ -23,7 +23,8 @@ public:
     inline double GetX() const { return fX; }
     inline double GetY() const { return fY; }
     inline double GetTime() const { return fTime; }
-    inline Ball& GetBall(int index);
+    inline double GetSize() const { return fSize; }
+    inline Ball & GetBall(int index);
     inline TwoVector GetGrav() const { return fGrav; }
 
     inline void SetX(double x);
@@ -38,13 +39,14 @@ private:
     double fX;
     double fY;
     double fTime;
+    int fSize;
     std::vector<std::unique_ptr<Ball>> fBalls;
     TwoVector fGrav;
 };
 
-Ball& Field::GetBall(int index)
+Ball & Field::GetBall(int index)
 {
-    return (*fBalls[index]);
+    return *fBalls[index];
 }
 
 void Field::SetX(double x)

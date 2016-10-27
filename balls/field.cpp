@@ -7,7 +7,7 @@
 
 Field::Field()
 {
-
+    fSize = 0;
 }
 
 Field::Field(double x, double y, double time, TwoVector grav)
@@ -16,6 +16,7 @@ Field::Field(double x, double y, double time, TwoVector grav)
     fY = y;
     fTime = time;
     fGrav = grav;
+    fSize = 0;
 }
 
 Field::~Field()
@@ -26,11 +27,13 @@ Field::~Field()
 void Field::AddBall(std::unique_ptr<Ball> ball)
 {
     fBalls.push_back(std::move(ball));
+    fSize++;
 }
 
 void Field::ClearBalls()
 {
     fBalls.clear();
+    fSize = 0;
 }
 
 void Field::Update()

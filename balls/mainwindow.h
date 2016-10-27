@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#include "field.h"
+#include "displaywindow.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -15,8 +18,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_widget_objectNameChanged(const QString &objectName);
+
 private:
     Ui::MainWindow *ui;
+    DisplayWindow * Win;
+    Field * fField;
 };
 
 #endif // MAINWINDOW_H

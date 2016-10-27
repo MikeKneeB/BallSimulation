@@ -43,40 +43,31 @@ void RegularBall::ResolveCollision(/*Field & field*/)
 {
     if (fPos.GetX() < fRadius)
     {
-        //Floor
         fPos.SetX(fRadius);
-        fVel.SetY(std::abs(fVel.GetY()));
+        fVel.SetX(-(fVel.GetX()));
     }
     else if (fPos.GetY() < fRadius)
     {
-        //Left wall.
         fPos.SetY(fRadius);
-        fVel.SetX(std::abs(fVel.GetX()));
+        fVel.SetY(-(fVel.GetY()));
     }
     else if (fPos.GetX() > fField->GetX() - fRadius)
     {
-        //Ceiling.
         fPos.SetX(fField->GetX() - fRadius);
-        fVel.SetY(-std::abs(fVel.GetY()));
+        fVel.SetX(-(fVel.GetX()));
     }
     else if (fPos.GetY() > fField->GetY() - fRadius)
     {
-        //Right Wall.
         fPos.SetY(fField->GetY() - fRadius);
-        fVel.SetX(-std::abs(fVel.GetX()));
+        fVel.SetY(-(fVel.GetY()));
     }
 }
 
 void RegularBall::Tick(double time)
 {
-    fPos.SetX(fVel.GetX()*time + 0.5*fField->GetGrav().GetX()*time*time);
-    fPos.SetY(fVel.GetY()*time + 0.5*fField->GetGrav().GetY()*time*time);
+    fPos.SetX(fPos.GetX() + fVel.GetX()*time + 0.5*fField->GetGrav().GetX()*time*time);
+    fVel.SetX(fVel.GetX() + fField->GetGrav().GetX()*time);
+    fPos.SetY(fPos.GetY() + fVel.GetY()*time + 0.5*fField->GetGrav().GetY()*time*time);
+    fVel.SetY(fVel.GetY() + fField->GetGrav().GetY()*time);
 }
 
-//void RegularBall::Print()
-//{
-//    std::cout << "Mass: " << fMass << std::endl;
-//    std::cout << "Radius: " << fRadius << std::endl;
-//    std::cout << "Position: " << fPos.GetX() << ", " << fPos.GetY() << std::endl;
-//    std::cout << "Velocity: " << fVel.GetX() << ", " << fVel.GetY() << std::endl;
-//}

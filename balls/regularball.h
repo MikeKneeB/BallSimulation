@@ -21,14 +21,14 @@ public:
 
     void Tick(double time);
 
-    inline Field* GetField() const {return fField;}
+    inline const Field* GetField() const {return fField;}
 
     inline void SetField(Field* field) {fField = field;}
 
     //void Print();
 
 private:
-    Field * fField;
+    const Field * fField;
 };
 
 #endif // REGULARBALL_H

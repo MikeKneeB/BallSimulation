@@ -15,13 +15,13 @@ void TestField();
 
 int main(int argc, char *argv[])
 {
-//    QApplication a(argc, argv);
-//    MainWindow w;
-//    w.show();
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
-//    return a.exec();
+    return a.exec();
 
-    TestField();
+  //  TestField();
 
     return 0;
 }
@@ -85,6 +85,18 @@ void TestField()
     field.AddBall(move(refBall));
 
     field.Print();
+
+    field.GetBall(0).Print();
+
+    field.Update();
+
+    field.GetBall(0).Print();
+
+    field.Update();
+
+    field.GetBall(0).Print();
+
+    field.Update();
 
     field.GetBall(0).Print();
 

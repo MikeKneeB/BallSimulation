@@ -17,12 +17,15 @@ SOURCES += main.cpp\
     twovector.cpp \
     ball.cpp \
     field.cpp \
-    regularball.cpp
+    regularball.cpp \
+    displaywindow.cpp
 
 HEADERS  += mainwindow.h \
     twovector.h \
     ball.h \
     field.h \
-    regularball.h
+    regularball.h \
+    displaywindow.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    displaywindow.ui
