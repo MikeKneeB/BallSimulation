@@ -18,14 +18,17 @@ SOURCES += main.cpp\
     ball.cpp \
     field.cpp \
     regularball.cpp \
-    displaywindow.cpp
+    displaywindow.cpp \
+    adddialog.cpp
 
 HEADERS  += mainwindow.h \
     twovector.h \
     ball.h \
     field.h \
     regularball.h \
-    displaywindow.h
+    displaywindow.h \
+    adddialog.h
 
 FORMS    += mainwindow.ui \
-    displaywindow.ui
+    displaywindow.ui \
+    adddialog.ui

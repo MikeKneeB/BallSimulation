@@ -26,7 +26,7 @@ double TwoVector::Modulus()
 
 double TwoVector::Argument()
 {
-    return std::tan(fY/fX);
+    return std::atan(fY/fX);
 }
 
 double TwoVector::Dot(TwoVector second)

@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "displaywindow.h"
+#include "adddialog.h"
 #include "twovector.h"
 #include "regularball.h"
 #include "field.h"
@@ -16,11 +17,14 @@ MainWindow::MainWindow(QWidget *parent) :
     fField = new Field();
     fField->SetX(500);
     fField->SetY(500);
-    fField->SetGrav(TwoVector(10,10));
+    fField->SetGrav(TwoVector(0,0));
     fField->SetTime(0.01);
 
     Win = new DisplayWindow(fField, this);
+    Win->move(10, 10);
 
+    ui->horizontalSlider->setRange(-20, 20);
+    ui->horizontalSlider_2->setRange(-20, 20);
 }
 
 
@@ -32,7 +36,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    fField->AddBall(std::unique_ptr<Ball>(new RegularBall(TwoVector(300,200),TwoVector(10,0), 20, 0.4, fField)));
+    AddDialog * dialog = new AddDialog(fField, this);
+    dialog->show();
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -46,4 +51,14 @@ void MainWindow::on_pushButton_2_clicked()
     {
         ui->pushButton_2->setText("Play");
     }
+}
+
+void MainWindow::on_horizontalSlider_sliderMoved(int position)
+{
+    fField->SetGrav(TwoVector(ui->horizontalSlider->value(), ui->horizontalSlider_2->value()));
+}
+
+void MainWindow::on_horizontalSlider_2_sliderMoved(int position)
+{
+    fField->SetGrav(TwoVector(ui->horizontalSlider->value(), ui->horizontalSlider_2->value()));
 }
