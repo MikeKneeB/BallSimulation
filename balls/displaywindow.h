@@ -18,12 +18,14 @@ public:
     explicit DisplayWindow(Field * field, QWidget *parent = 0);
     ~DisplayWindow();
 
+    void toggleSimulation();
+
+    bool running();
+
 private slots:
     void paintEvent(QPaintEvent *);
     void updateEngine();
     void closeEvent(QCloseEvent *);
-
-    void on_pushButton_clicked();
 
 private:
     Ui::DisplayWindow *ui;

@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     fField->SetX(500);
     fField->SetY(500);
     fField->SetGrav(TwoVector(10,10));
-    fField->SetTime(0.1);
+    fField->SetTime(0.01);
 
     Win = new DisplayWindow(fField, this);
 
@@ -33,4 +33,17 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     fField->AddBall(std::unique_ptr<Ball>(new RegularBall(TwoVector(300,200),TwoVector(10,0), 20, 0.4, fField)));
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    Win->toggleSimulation();
+    if (Win->running())
+    {
+        ui->pushButton_2->setText("Pause");
+    }
+    else
+    {
+        ui->pushButton_2->setText("Play");
+    }
 }

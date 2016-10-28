@@ -21,11 +21,11 @@ DisplayWindow::DisplayWindow(Field * field, QWidget *parent) :
 
     fUpTimer = new QTimer(this);
     connect(fUpTimer, SIGNAL(timeout()), this, SLOT(updateEngine()));
-    fUpTimer->start(10);
+    fUpTimer->start(5);
 
     fTimer = new QTimer(this);
     connect(fTimer, SIGNAL(timeout()), this, SLOT(update()));
-    fTimer->start(10);
+    fTimer->start(5);
 
     show();
 
@@ -46,13 +46,36 @@ void DisplayWindow::paintEvent(QPaintEvent *)
 
     painter.setBrush(Qt::black);
 
+    double x, y, r;
+
     for (int i = 0; i != fField->GetSize(); i++)
     {
-        painter.drawEllipse(fField->GetBall(i).GetPos().GetX(),
-                            fField->GetBall(i).GetPos().GetY(),
-                            fField->GetBall(i).GetRadius(),
-                            fField->GetBall(i).GetRadius());
+        r = fField->GetBall(i).GetRadius();
+        x = fField->GetBall(i).GetPos().GetX();
+        y = fField->GetBall(i).GetPos().GetY();
+        painter.drawEllipse(x - r, y - r, 2*r, 2*r);
     }
+}
+
+void DisplayWindow::toggleSimulation()
+{
+    if (fRunning)
+    {
+        fUpTimer->stop();
+        fTimer->stop();
+        fRunning = false;
+    }
+    else
+    {
+        fUpTimer->start(5);
+        fTimer->start(5);
+        fRunning = true;
+    }
+}
+
+bool DisplayWindow::running()
+{
+    return fRunning;
 }
 
 void DisplayWindow::closeEvent(QCloseEvent *event)

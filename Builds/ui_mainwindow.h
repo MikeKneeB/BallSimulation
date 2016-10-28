@@ -30,6 +30,7 @@ public:
     QWidget *widget;
     QFrame *line;
     QFrame *line_2;
+    QPushButton *pushButton_2;
     QMenuBar *menuBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -55,6 +56,9 @@ public:
         line_2->setGeometry(QRect(0, 500, 500, 3));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(10, 510, 75, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -70,6 +74,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         pushButton->setText(QApplication::translate("MainWindow", "EEHHH", 0));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Pause", 0));
     } // retranslateUi
 
 };

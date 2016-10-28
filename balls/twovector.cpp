@@ -38,7 +38,7 @@ TwoVector TwoVector::Rotate(double radians)
 {
     TwoVector temporary;
     temporary.fX = std::cos(radians)*this->fX - std::sin(radians)*this->fY;
-    temporary.fY = std::cos(radians)*this->fX + std::sin(radians)*this->fY;
+    temporary.fY = std::sin(radians)*this->fX + std::cos(radians)*this->fY;
     return temporary;
 }
 
