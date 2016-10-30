@@ -5,6 +5,7 @@
 #include "field.h"
 #include "ball.h"
 #include "regularball.h"
+#include "inelasticball.h"
 
 AddDialog::AddDialog(Field * field, QWidget *parent) :
     QDialog(parent),
@@ -31,7 +32,15 @@ AddDialog::AddDialog(Field * field, QWidget *parent) :
     ui->doubleSpinBox_6->setMinimum(1);
     ui->doubleSpinBox_6->setValue(10);
 
+    ui->doubleSpinBox_7->setMaximum(1);
+    ui->doubleSpinBox_7->setMinimum(0);
+    ui->doubleSpinBox_7->setValue(0.5);
+
+    ui->doubleSpinBox_7->hide();
+    ui->label_5->hide();
+
     this->setWindowTitle("Add Ball");
+
 }
 
 AddDialog::~AddDialog()
@@ -41,7 +50,8 @@ AddDialog::~AddDialog()
 
 void AddDialog::on_buttonBox_accepted()
 {
-    if (ui->comboBox->currentText() == "Regular ball"){
+    if (ui->comboBox->currentIndex() == 0)
+    {
         fField->AddBall(std::unique_ptr<Ball>(
                             new RegularBall(TwoVector(ui->doubleSpinBox->value(), ui->doubleSpinBox_2->value()),
                                             TwoVector(ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value()),
@@ -49,5 +59,29 @@ void AddDialog::on_buttonBox_accepted()
                                             ui->doubleSpinBox_5->value(),
                                             fField)));
     }
+    else if (ui->comboBox->currentIndex() == 1)
+    {
+        fField->AddBall(std::unique_ptr<Ball>(
+                            new InelasticBall(TwoVector(ui->doubleSpinBox->value(), ui->doubleSpinBox_2->value()),
+                                            TwoVector(ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value()),
+                                            ui->doubleSpinBox_6->value(),
+                                            ui->doubleSpinBox_5->value(),
+                                            ui->doubleSpinBox_7->value(),
+                                            fField)));
+    }
 
+}
+
+void AddDialog::on_comboBox_currentIndexChanged(const QString &arg1)
+{
+    if (ui->comboBox->currentIndex() == 0)
+    {
+        ui->doubleSpinBox_7->hide();
+        ui->label_5->hide();
+    }
+    else if (ui->comboBox->currentIndex() == 1)
+    {
+        ui->doubleSpinBox_7->show();
+        ui->label_5->show();
+    }
 }

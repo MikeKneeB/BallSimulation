@@ -37,6 +37,8 @@ public:
     QLabel *label_3;
     QDoubleSpinBox *doubleSpinBox_6;
     QLabel *label_4;
+    QDoubleSpinBox *doubleSpinBox_7;
+    QLabel *label_5;
 
     void setupUi(QDialog *AddDialog)
     {
@@ -81,6 +83,12 @@ public:
         label_4 = new QLabel(AddDialog);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(10, 150, 47, 13));
+        doubleSpinBox_7 = new QDoubleSpinBox(AddDialog);
+        doubleSpinBox_7->setObjectName(QStringLiteral("doubleSpinBox_7"));
+        doubleSpinBox_7->setGeometry(QRect(60, 180, 62, 22));
+        label_5 = new QLabel(AddDialog);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(10, 180, 47, 13));
 
         retranslateUi(AddDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), AddDialog, SLOT(accept()));
@@ -95,11 +103,13 @@ public:
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("AddDialog", "Regular ball", 0)
+         << QApplication::translate("AddDialog", "Inelastic Ball", 0)
         );
         label->setText(QApplication::translate("AddDialog", "Position", 0));
         label_2->setText(QApplication::translate("AddDialog", "Velocity", 0));
         label_3->setText(QApplication::translate("AddDialog", "Mass", 0));
         label_4->setText(QApplication::translate("AddDialog", "Radius", 0));
+        label_5->setText(QApplication::translate("AddDialog", "Elasticity", 0));
     } // retranslateUi
 
 };

@@ -11,15 +11,18 @@ public:
          TwoVector velocity,
          double radius,
          double mass);
-    ~Ball();
+    Ball(const Ball & other);
+    virtual ~Ball() = 0;
 
-    bool CheckCollision(const Ball & other);
+    virtual bool CheckCollision(const Ball & other) final;
     virtual bool CheckCollision() = 0;
 
-    void ResolveCollision(Ball & other);
+    virtual void ResolveCollision(Ball & other) final;
     virtual void ResolveCollision() = 0;
 
     virtual void Tick(double time) = 0;
+
+    virtual Ball* Copy() = 0;
 
     inline TwoVector GetPos() const {return fPos;}
     inline TwoVector GetVel() const {return fVel;}
@@ -41,6 +44,9 @@ protected:
     double fRadius;
     double fMass;
     //Field * fField;
+
+private:
+    virtual void InternalResolve(const Ball & other) = 0;
 };
 
 #endif // BALL_H

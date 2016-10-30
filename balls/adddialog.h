@@ -20,6 +20,8 @@ public:
 private slots:
     void on_buttonBox_accepted();
 
+    void on_comboBox_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::AddDialog *ui;
     Field * fField;

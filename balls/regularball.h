@@ -13,6 +13,7 @@ public:
          double radius,
          double mass,
          Field* field);
+    RegularBall(const RegularBall & other);
     ~RegularBall();
 
     bool CheckCollision();
@@ -20,6 +21,8 @@ public:
     void ResolveCollision();
 
     void Tick(double time);
+
+    RegularBall * Copy();
 
     inline const Field* GetField() const {return fField;}
 
@@ -29,6 +32,8 @@ public:
 
 private:
     const Field * fField;
+
+    void InternalResolve(const Ball & other);
 };
 
 #endif // REGULARBALL_H

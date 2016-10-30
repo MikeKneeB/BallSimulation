@@ -19,6 +19,12 @@ RegularBall::RegularBall(TwoVector position,
     fField = field;
 }
 
+RegularBall::RegularBall(const RegularBall & other)
+    : Ball::Ball(other)
+{
+    this->fField = other.fField;
+}
+
 RegularBall::~RegularBall()
 {
 
@@ -69,5 +75,39 @@ void RegularBall::Tick(double time)
     fVel.SetX(fVel.GetX() + fField->GetGrav().GetX()*time);
     fPos.SetY(fPos.GetY() + fVel.GetY()*time + 0.5*fField->GetGrav().GetY()*time*time);
     fVel.SetY(fVel.GetY() + fField->GetGrav().GetY()*time);
+}
+
+RegularBall * RegularBall::Copy()
+{
+    return new RegularBall(*this);
+}
+
+void RegularBall::InternalResolve(const Ball & other)
+{
+    TwoVector distance = this->GetPos() - other.GetPos();
+    double angle = distance.Argument();
+
+    double mass = this->GetMass();
+    double otherMass = other.GetMass();
+
+    TwoVector workingVelocity = this->GetVel().Rotate(angle);
+    TwoVector otherWorkingVelocity = other.GetVel().Rotate(angle);
+
+    double afterCollision = (workingVelocity.GetX()*(mass - otherMass) + 2*otherMass*otherWorkingVelocity.GetX())/(otherMass + mass);
+
+    workingVelocity.SetX(afterCollision);
+
+    this->fVel = workingVelocity.Rotate(-angle);
+
+    double fullDistance = this->GetRadius() + other.GetRadius();
+    double distanceDifference = fullDistance - distance.Modulus();
+
+    TwoVector normDistance = distance*(1/distance.Modulus());
+
+    TwoVector newPosition = this->GetPos() + normDistance*(distanceDifference/2);
+
+    this->fPos = newPosition;
+
+    return;
 }
 

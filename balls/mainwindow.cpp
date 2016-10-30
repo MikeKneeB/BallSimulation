@@ -68,4 +68,8 @@ void MainWindow::on_horizontalSlider_2_sliderMoved(int position)
 void MainWindow::on_pushButton_3_clicked()
 {
     fField->ClearBalls();
+    ui->horizontalSlider->setValue(0);
+    ui->horizontalSlider_2->setValue(0);
+    fField->SetGrav(TwoVector(0,0));
+
 }

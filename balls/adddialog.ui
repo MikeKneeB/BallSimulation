@@ -43,6 +43,11 @@
      <string>Regular ball</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>Inelastic Ball</string>
+    </property>
+   </item>
   </widget>
   <widget class="QDoubleSpinBox" name="doubleSpinBox">
    <property name="geometry">
@@ -154,6 +159,29 @@
    </property>
    <property name="text">
     <string>Radius</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="doubleSpinBox_7">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>180</y>
+     <width>62</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>180</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Elasticity</string>
    </property>
   </widget>
  </widget>
