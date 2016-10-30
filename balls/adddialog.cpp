@@ -19,10 +19,10 @@ AddDialog::AddDialog(Field * field, QWidget *parent) :
     ui->doubleSpinBox_2->setMinimum(0);
     ui->doubleSpinBox_2->setValue(250);
     ui->doubleSpinBox_3->setMaximum(500);
-    ui->doubleSpinBox_3->setMinimum(0);
+    ui->doubleSpinBox_3->setMinimum(-500);
     ui->doubleSpinBox_3->setValue(0);
     ui->doubleSpinBox_4->setMaximum(500);
-    ui->doubleSpinBox_4->setMinimum(0);
+    ui->doubleSpinBox_4->setMinimum(-500);
     ui->doubleSpinBox_4->setValue(0);
     ui->doubleSpinBox_5->setMaximum(100);
     ui->doubleSpinBox_5->setMinimum(0);
@@ -30,6 +30,8 @@ AddDialog::AddDialog(Field * field, QWidget *parent) :
     ui->doubleSpinBox_6->setMaximum(50);
     ui->doubleSpinBox_6->setMinimum(1);
     ui->doubleSpinBox_6->setValue(10);
+
+    this->setWindowTitle("Add Ball");
 }
 
 AddDialog::~AddDialog()

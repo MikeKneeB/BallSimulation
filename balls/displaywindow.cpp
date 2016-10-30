@@ -37,7 +37,6 @@ DisplayWindow::~DisplayWindow()
     delete fField;
     delete fTimer;
     delete fUpTimer;
-    std::cout << "Display window destructor called." << std::endl;
 }
 
 void DisplayWindow::paintEvent(QPaintEvent *)

@@ -27,6 +27,8 @@ private slots:
 
     void on_horizontalSlider_2_sliderMoved(int position);
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     DisplayWindow * Win;

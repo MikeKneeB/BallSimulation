@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\twovector.o
+./release\ball.o
+./release\field.o
+./release\regularball.o
+./release\displaywindow.o
+./release\adddialog.o
+./release\moc_mainwindow.o
+./release\moc_displaywindow.o
+./release\moc_adddialog.o
+);

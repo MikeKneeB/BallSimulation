@@ -23,8 +23,10 @@ MainWindow::MainWindow(QWidget *parent) :
     Win = new DisplayWindow(fField, this);
     Win->move(10, 10);
 
-    ui->horizontalSlider->setRange(-20, 20);
-    ui->horizontalSlider_2->setRange(-20, 20);
+    ui->horizontalSlider->setRange(-30, 30);
+    ui->horizontalSlider_2->setRange(-30, 30);
+
+    this->setWindowTitle("Ball Simulation");
 }
 
 
@@ -61,4 +63,9 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 void MainWindow::on_horizontalSlider_2_sliderMoved(int position)
 {
     fField->SetGrav(TwoVector(ui->horizontalSlider->value(), ui->horizontalSlider_2->value()));
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    fField->ClearBalls();
 }

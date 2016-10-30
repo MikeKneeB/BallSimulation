@@ -63,7 +63,6 @@ void Ball::ResolveCollision(Ball & other)
     TwoVector workingVelocity = this->GetVel().Rotate(angle);
     TwoVector otherWorkingVelocity = other.GetVel().Rotate(angle);
 
-    //Collision now happens only in x plane.
     double afterCollision = (workingVelocity.GetX()*(mass - otherMass) + 2*otherMass*otherWorkingVelocity.GetX())/(otherMass + mass);
     double otherAfterCollision = (otherWorkingVelocity.GetX()*(otherMass - mass) + 2*mass*workingVelocity.GetX())/(otherMass + mass);
 
@@ -76,26 +75,13 @@ void Ball::ResolveCollision(Ball & other)
     double fullDistance = this->GetRadius() + other.GetRadius();
     double distanceDifference = fullDistance - distance.Modulus();
 
-    //TwoVector midPoint =
-
     TwoVector normDistance = distance*(1/distance.Modulus());
-
-    std::cout << "This pos: " << this->GetPos().GetX() << ", " << this->GetPos().GetY() << std::endl;
-    std::cout << "Other pos: " << other.GetPos().GetX() << ", " << other.GetPos().GetY() << std::endl;
-    std::cout << "Norm: " << normDistance.GetX() << ", " << normDistance.GetY() << std::endl;
-    std::cout << "Angle norm: " << normDistance.Argument() << std::endl;
 
     TwoVector newPosition = this->GetPos() + normDistance*(distanceDifference/2);
     TwoVector otherNewPosition = other.GetPos() - normDistance*(distanceDifference/2);
 
     this->fPos = newPosition;
     other.fPos = otherNewPosition;
-
-    std::cout << "Calc difference " << distanceDifference << std::endl;
-
-    std::cout << "Distance " << distance.Modulus() << std::endl;
-
-    std::cout << "Difference " << (this->fPos - other.fPos).Modulus() << std::endl;
 
     return;
 }
