@@ -10,7 +10,7 @@ class Field
 {
 public:
     Field();
-    Field(double x, double y, double time, TwoVector grav);
+    Field(double x, double y, double time, double resistance, TwoVector grav);
     ~Field();
 
     void AddBall(std::unique_ptr<Ball> ball);
@@ -23,6 +23,7 @@ public:
     inline double GetX() const { return fX; }
     inline double GetY() const { return fY; }
     inline double GetTime() const { return fTime; }
+    inline double GetResistance() const { return fResistance; }
     inline double GetSize() const { return fSize; }
     inline Ball & GetBall(int index);
     inline TwoVector GetGrav() const { return fGrav; }
@@ -31,6 +32,7 @@ public:
     inline void SetY(double y);
     inline void SetTime(double time);
     inline void SetXY(double x, double y);
+    inline void SetResistance(double resistance);
     inline void SetGrav(const TwoVector& grav);
 
     void Print();
@@ -39,6 +41,7 @@ private:
     double fX;
     double fY;
     double fTime;
+    double fResistance;
     int fSize;
     std::vector<std::unique_ptr<Ball>> fBalls;
     TwoVector fGrav;
@@ -95,6 +98,18 @@ void Field::SetXY(double x, double y)
     {
         fX = x;
         fY = y;
+    }
+}
+
+void Field::SetResistance(double resistance)
+{
+    if (resistance < 0)
+    {
+        return;
+    }
+    else
+    {
+        fResistance = resistance;
     }
 }
 

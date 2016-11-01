@@ -34,7 +34,6 @@ DisplayWindow::DisplayWindow(Field * field, QWidget *parent) :
 DisplayWindow::~DisplayWindow()
 {
     delete ui;
-    delete fField;
     delete fTimer;
     delete fUpTimer;
 }

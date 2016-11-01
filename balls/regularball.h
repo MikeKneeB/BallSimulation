@@ -30,9 +30,10 @@ public:
 
     //void Print();
 
-private:
+protected:
     const Field * fField;
 
+private:
     void InternalResolve(const Ball & other);
 };
 

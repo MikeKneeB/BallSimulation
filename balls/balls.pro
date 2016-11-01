@@ -20,7 +20,7 @@ SOURCES += main.cpp\
     regularball.cpp \
     displaywindow.cpp \
     adddialog.cpp \
-    inelasticball.cpp
+    dragball.cpp
 
 HEADERS  += mainwindow.h \
     twovector.h \
@@ -29,7 +29,7 @@ HEADERS  += mainwindow.h \
     regularball.h \
     displaywindow.h \
     adddialog.h \
-    inelasticball.h
+    dragball.h
 
 FORMS    += mainwindow.ui \
     displaywindow.ui \

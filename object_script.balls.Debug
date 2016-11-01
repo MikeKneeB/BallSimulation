@@ -7,7 +7,7 @@ INPUT(
 ./debug\regularball.o
 ./debug\displaywindow.o
 ./debug\adddialog.o
-./debug\inelasticball.o
+./debug\dragball.o
 ./debug\moc_mainwindow.o
 ./debug\moc_displaywindow.o
 ./debug\moc_adddialog.o

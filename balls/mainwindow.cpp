@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     fField = new Field();
     fField->SetX(500);
     fField->SetY(500);
+    fField->SetResistance(0);
     fField->SetGrav(TwoVector(0,0));
     fField->SetTime(0.01);
 
@@ -29,11 +30,10 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle("Ball Simulation");
 }
 
-
-
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete fField;
 }
 
 void MainWindow::on_pushButton_clicked()

@@ -10,11 +10,12 @@ Field::Field()
     fSize = 0;
 }
 
-Field::Field(double x, double y, double time, TwoVector grav)
+Field::Field(double x, double y, double time, double resistance, TwoVector grav)
 {
     fX = x;
     fY = y;
     fTime = time;
+    fResistance = resistance;
     fGrav = grav;
     fSize = 0;
 }
