@@ -23,15 +23,17 @@ private slots:
 
     void on_pushButton_2_clicked();
 
-    void on_horizontalSlider_sliderMoved(int position);
+    void on_horizontalSlider_valueChanged(int value);
 
-    void on_horizontalSlider_2_sliderMoved(int position);
+    void on_horizontalSlider_2_valueChanged(int value);
 
     void on_pushButton_3_clicked();
 
+    void on_horizontalSlider_3_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
-    DisplayWindow * Win;
+    DisplayWindow * fWin;
     Field * fField;
 };
 

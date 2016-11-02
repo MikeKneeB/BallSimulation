@@ -85,20 +85,3 @@ void DisplayWindow::updateEngine()
 {
     fField->Update();
 }
-
-//void DisplayWindow::on_pushButton_clicked()
-//{
-//    if (fRunning)
-//    {
-//        fUpTimer->stop();
-//        fTimer->stop();
-//        fRunning = false;
-//    }
-//    else
-//    {
-//        fUpTimer->start(10);
-//        fTimer->start(10);
-//        ui->pushButton->setText("Pause");
-//        fRunning = true;
-//    }
-//}

@@ -15,7 +15,6 @@ public:
 
     void AddBall(std::unique_ptr<Ball> ball);
 
-    //void DeleteBall(int index);
     void ClearBalls();
 
     void Update();

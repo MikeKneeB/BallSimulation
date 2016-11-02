@@ -1,4 +1,5 @@
 #include <memory>
+#include <cmath>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -17,15 +18,17 @@ MainWindow::MainWindow(QWidget *parent) :
     fField = new Field();
     fField->SetX(500);
     fField->SetY(500);
-    fField->SetResistance(0);
+    fField->SetResistance(1);
     fField->SetGrav(TwoVector(0,0));
     fField->SetTime(0.01);
 
-    Win = new DisplayWindow(fField, this);
-    Win->move(10, 10);
+    fWin = new DisplayWindow(fField, this);
+    fWin->move(10, 10);
 
     ui->horizontalSlider->setRange(-30, 30);
     ui->horizontalSlider_2->setRange(-30, 30);
+
+    ui->horizontalSlider_3->setRange(0, 100);
 
     this->setWindowTitle("Ball Simulation");
 }
@@ -44,8 +47,8 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    Win->toggleSimulation();
-    if (Win->running())
+    fWin->toggleSimulation();
+    if (fWin->running())
     {
         ui->pushButton_2->setText("Pause");
     }
@@ -55,12 +58,12 @@ void MainWindow::on_pushButton_2_clicked()
     }
 }
 
-void MainWindow::on_horizontalSlider_sliderMoved(int position)
+void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
     fField->SetGrav(TwoVector(ui->horizontalSlider->value(), ui->horizontalSlider_2->value()));
 }
 
-void MainWindow::on_horizontalSlider_2_sliderMoved(int position)
+void MainWindow::on_horizontalSlider_2_valueChanged(int value)
 {
     fField->SetGrav(TwoVector(ui->horizontalSlider->value(), ui->horizontalSlider_2->value()));
 }
@@ -72,4 +75,9 @@ void MainWindow::on_pushButton_3_clicked()
     ui->horizontalSlider_2->setValue(0);
     fField->SetGrav(TwoVector(0,0));
 
+}
+
+void MainWindow::on_horizontalSlider_3_valueChanged(int value)
+{
+    fField->SetResistance(std::pow(10,-0.1*ui->horizontalSlider_3->value()));
 }
