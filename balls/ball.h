@@ -43,9 +43,7 @@ protected:
     TwoVector fVel;
     double fRadius;
     double fMass;
-    //Field * fField;
 
-private:
     virtual void InternalResolve(const Ball & other) = 0;
 };
 

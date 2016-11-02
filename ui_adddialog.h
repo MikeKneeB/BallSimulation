@@ -50,7 +50,7 @@ public:
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         comboBox = new QComboBox(AddDialog);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(10, 10, 91, 22));
+        comboBox->setGeometry(QRect(10, 10, 151, 22));
         doubleSpinBox = new QDoubleSpinBox(AddDialog);
         doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
         doubleSpinBox->setGeometry(QRect(60, 60, 62, 22));
@@ -95,6 +95,7 @@ public:
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("AddDialog", "Regular Ball", 0)
+         << QApplication::translate("AddDialog", "Anti Gravity Ball", 0)
          << QApplication::translate("AddDialog", "Drag Ball", 0)
         );
         label->setText(QApplication::translate("AddDialog", "Position", 0));

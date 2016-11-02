@@ -8,6 +8,7 @@ INPUT(
 ./debug\displaywindow.o
 ./debug\adddialog.o
 ./debug\dragball.o
+./debug\antiball.o
 ./debug\moc_mainwindow.o
 ./debug\moc_displaywindow.o
 ./debug\moc_adddialog.o

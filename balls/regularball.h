@@ -33,7 +33,6 @@ public:
 protected:
     const Field * fField;
 
-private:
     void InternalResolve(const Ball & other);
 };
 

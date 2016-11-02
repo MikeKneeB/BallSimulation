@@ -34,13 +34,18 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>91</width>
+     <width>151</width>
      <height>22</height>
     </rect>
    </property>
    <item>
     <property name="text">
      <string>Regular Ball</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Anti Gravity Ball</string>
     </property>
    </item>
    <item>

@@ -6,6 +6,7 @@
 #include "ball.h"
 #include "regularball.h"
 #include "dragball.h"
+#include "antiball.h"
 
 AddDialog::AddDialog(Field * field, QWidget *parent) :
     QDialog(parent),
@@ -52,7 +53,16 @@ void AddDialog::on_buttonBox_accepted()
                                             ui->doubleSpinBox_5->value(),
                                             fField)));
     }
-    if (ui->comboBox->currentIndex() == 1)
+    else if (ui->comboBox->currentIndex() == 1)
+    {
+        fField->AddBall(std::unique_ptr<Ball>(
+                            new AntiBall(TwoVector(ui->doubleSpinBox->value(), ui->doubleSpinBox_2->value()),
+                                            TwoVector(ui->doubleSpinBox_3->value(), ui->doubleSpinBox_4->value()),
+                                            ui->doubleSpinBox_6->value(),
+                                            ui->doubleSpinBox_5->value(),
+                                            fField)));
+    }
+    else if (ui->comboBox->currentIndex() == 2)
     {
         fField->AddBall(std::unique_ptr<Ball>(
                             new DragBall(TwoVector(ui->doubleSpinBox->value(), ui->doubleSpinBox_2->value()),
@@ -61,7 +71,6 @@ void AddDialog::on_buttonBox_accepted()
                                             ui->doubleSpinBox_5->value(),
                                             fField)));
     }
-
 }
 
 void AddDialog::on_comboBox_currentIndexChanged(const QString &arg1)
