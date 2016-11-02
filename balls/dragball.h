@@ -15,7 +15,7 @@ public:
              Field* field);
     ~DragBall();
 
-    void Tick(double time);
+    void Tick();
 
     DragBall * Copy();
 };

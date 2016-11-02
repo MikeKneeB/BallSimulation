@@ -20,7 +20,7 @@ public:
     virtual void ResolveCollision(Ball & other) final;
     virtual void ResolveCollision() = 0;
 
-    virtual void Tick(double time) = 0;
+    virtual void Tick() = 0;
 
     virtual Ball* Copy() = 0;
 

@@ -53,7 +53,7 @@ void Field::Update()
                 (*iter)->ResolveCollision(*(*initer));
             }
         }
-        (*iter)->Tick(fTime);
+        (*iter)->Tick();
     }
 }
 

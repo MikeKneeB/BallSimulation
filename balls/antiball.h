@@ -15,7 +15,7 @@ public:
     AntiBall(const RegularBall & other);
     ~AntiBall();
 
-    void Tick(double time);
+    void Tick();
 
     AntiBall * Copy();
 };

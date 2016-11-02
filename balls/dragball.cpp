@@ -25,8 +25,10 @@ DragBall::~DragBall()
 
 }
 
-void DragBall::Tick(double time)
+void DragBall::Tick()
 {
+    double time = fField->GetTime();
+
     TwoVector airResistance;
 
     airResistance.SetX(-0.5 * fField->GetResistance() * PI * fRadius * fRadius * fVel.GetX() * std::abs(fVel.GetX()));

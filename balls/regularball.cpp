@@ -69,8 +69,10 @@ void RegularBall::ResolveCollision(/*Field & field*/)
     }
 }
 
-void RegularBall::Tick(double time)
+void RegularBall::Tick()
 {
+    double time = fField->GetTime();
+
     fPos.SetX(fPos.GetX() + fVel.GetX()*time + 0.5*fField->GetGrav().GetX()*time*time);
     fVel.SetX(fVel.GetX() + fField->GetGrav().GetX()*time);
     fPos.SetY(fPos.GetY() + fVel.GetY()*time + 0.5*fField->GetGrav().GetY()*time*time);

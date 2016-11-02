@@ -20,7 +20,7 @@ public:
 
     void ResolveCollision();
 
-    void Tick(double time);
+    void Tick();
 
     RegularBall * Copy();
 
