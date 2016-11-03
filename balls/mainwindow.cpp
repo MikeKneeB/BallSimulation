@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     fField = new Field();
     fField->SetX(500);
     fField->SetY(500);
-    fField->SetResistance(1);
+    fField->SetResistance(0.001);
     fField->SetGrav(TwoVector(0,0));
     fField->SetTime(0.01);
 
@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->horizontalSlider->setRange(-30, 30);
     ui->horizontalSlider_2->setRange(-30, 30);
 
-    ui->horizontalSlider_3->setRange(0, 100);
+    ui->horizontalSlider_3->setRange(100, 10000);
 
     this->setWindowTitle("Ball Simulation");
 }
@@ -74,10 +74,9 @@ void MainWindow::on_pushButton_3_clicked()
     ui->horizontalSlider->setValue(0);
     ui->horizontalSlider_2->setValue(0);
     fField->SetGrav(TwoVector(0,0));
-
 }
 
 void MainWindow::on_horizontalSlider_3_valueChanged(int value)
 {
-    fField->SetResistance(std::pow(10,-0.1*ui->horizontalSlider_3->value()));
+    fField->SetResistance(1.0/ui->horizontalSlider_3->value());
 }
