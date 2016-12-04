@@ -10,6 +10,12 @@ namespace Ui {
 class MainWindow;
 }
 
+/**
+ * @brief The MainWindow class
+ *
+ * MainWindow QWidget, creates a field and a DisplayWindow. Has all the buttons
+ * for affecting the simulation.
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

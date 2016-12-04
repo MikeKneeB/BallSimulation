@@ -12,10 +12,14 @@ Field::Field()
 
 Field::Field(double x, double y, double time, double resistance, TwoVector grav)
 {
-    fX = x;
-    fY = y;
-    fTime = time;
-    fResistance = resistance;
+    if (x > 0)
+        fX = x;
+    if (y > 0)
+        fY = y;
+    if (time > 0)
+        fTime = time;
+    if (resistance >= 0)
+        fResistance = resistance;
     fGrav = grav;
     fSize = 0;
 }

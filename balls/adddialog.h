@@ -9,6 +9,13 @@ namespace Ui {
 class AddDialog;
 }
 
+/**
+ * @brief The AddDialog class
+ *
+ * AddDialog QDialog, displayed when the user clicks the Add button. Allows a
+ * type of ball and initial parameters to be selected and added to the
+ * simulation.
+ */
 class AddDialog : public QDialog
 {
     Q_OBJECT
